@@ -18,7 +18,10 @@ function EditNote() {
       };
     const handleSubmission = () => {
         changeNote(note)
-        history.push("/")
+        history.push("/notes")
+    }
+    const handleCancel = ()=>{
+        history.push("/notes")
     }
     return (
         <div>
