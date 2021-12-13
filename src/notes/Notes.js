@@ -6,32 +6,32 @@ export default function Notes(){
     const [notes, setNotes] = useState([])
 
     useEffect(()=>{
-        listNotes().then((response)=>setNotes(response.data))
+        listNotes().then((res)=>setNotes(res.data.data))
     },[notes])
 
     const deleteHandler = async (id) =>{
         if(window.confirm("Would you like to delete this note ?")){
             if(window.confirm("Are you sure ?")){
                 await deleteNote(id).catch(console.error)
-                listNotes().then((response)=>setNotes(response.data))
+                listNotes().then((res)=>setNotes(res.data.data))
             }
         }
     }
     const notesHTML = notes.map((note)=>(
-        <Card style={{ width: '75%' }}>
-  <Card.Body>
-    <Card.Title>{note.title}</Card.Title>
-    <Card.Text>
-      {note.content}
-    </Card.Text>
-    <Link to={`notes/${note.id}`} type="button" className="btn btn-warning">Edit Note</Link>
-    <Button variant="danger" size="lg" active onClick={()=>deleteHandler(note.id)}>
-    Delete Note
-    </Button>
-  </Card.Body>
-</Card>
+            <Card className="col-4" key={note.id}bg="dark" border="warning" text="white" >
+            <Card.Body>
+                <Card.Title>{note.title}</Card.Title>
+                <Card.Text>
+                {note.content}
+                </Card.Text>
+                <Link to={`notes/${note.id}`} className="btn btn-warning" style={{margin:"10px 5px 10px 5px"}}>Edit Note</Link>
+                <Button variant="danger" size="sm" active onClick={()=>deleteHandler(note.id)} style={{margin:"10px 5px 10px 5px"}}>
+                Delete Note
+                </Button>
+            </Card.Body>
+            </Card>
     ))
-    return <div>
+    return <div className="row">
         {notesHTML}
     </div>
 }

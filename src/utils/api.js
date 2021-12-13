@@ -1,8 +1,9 @@
 import axios from "axios"
-const URL = process.env.BASE_API_URL
+const URL = process.env.REACT_APP_BASE_API_URL
 
 export async function listNotes(){
-    const data =  await axios.get(URL).catch(console.error)
+    const data =  await axios.get(`${URL}`).catch(console.error)
+    //console.log(data)
     return data
 }
 export async function readNote(noteId){
