@@ -6,8 +6,8 @@ export default function Notes(){
     const [notes, setNotes] = useState([])
 
     useEffect(()=>{
-        listNotes().then((res)=>setNotes(res.data.data))
-    },[notes])
+        listNotes().then((res)=>setNotes(res.data.data)).catch(console.error)
+    },[])
 
     const deleteHandler = async (id) =>{
         if(window.confirm("Would you like to delete this note ?")){
@@ -24,13 +24,14 @@ export default function Notes(){
                 <Card.Text>
                 {note.content}
                 </Card.Text>
-                <Link to={`notes/${note.id}`} className="btn btn-warning" style={{margin:"10px 5px 10px 5px"}}>Edit Note</Link>
+                <Link to={`/notes/${note.id}`} className="btn btn-warning" style={{margin:"10px 5px 10px 5px"}}>Edit Note</Link>
                 <Button variant="danger" size="sm" active onClick={()=>deleteHandler(note.id)} style={{margin:"10px 5px 10px 5px"}}>
                 Delete Note
                 </Button>
             </Card.Body>
             </Card>
     ))
+    if(!notes.length)return<h2>Loading...</h2>
     return <div className="row">
         {notesHTML}
     </div>

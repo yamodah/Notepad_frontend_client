@@ -1,13 +1,14 @@
 import React,{ useEffect, useState } from 'react'
-import {useParams, Link, useHistory} from "react-router-dom"
+import { Button } from 'react-bootstrap'
+import {useParams, useNavigate} from "react-router-dom"
 import { readNote, changeNote } from '../utils/api'
 function EditNote() {
     const [note, setNote] = useState({})
     const {noteId} =  useParams()
-    const history = useHistory()
+    const history = useNavigate()
 
     useEffect(()=>{
-        readNote(noteId).then((res)=>setNote(res.data.data))
+        readNote(noteId).then((res)=>setNote(res.data.data)).catch(console.error)
     },[noteId]);
 
     const handleChange = ({ target }) => {
@@ -16,24 +17,28 @@ function EditNote() {
           [target.name]: target.value,
         });
       };
-    const handleSubmission = () => {
+    const handleSubmission = (e) => {
+        e.preventDefault()
         changeNote(note)
-        history.push("/notes")
+        history("/notes")
     }
     const handleCancel = ()=>{
-        history.push("/notes")
+        history("/notes")
     }
+    if(!note.title)return <h3>Loading...</h3>
     return (
         <div>
-            <form>
+            <form onSubmit={handleSubmission}>
                 <label>
                     Title:
-                    <input type="text"/>
+                    <input type="text" onChange={handleChange} value={note.title} name="title"/>
                 </label>
                 <label>
                     Content:
-                    <textarea/>
+                    <textarea onChange={handleChange} value={note.content} name="content"/>
                 </label>
+                <Button onClick={handleCancel} variant="danger">Cancel</Button>
+                <Button type="submit" variant="success">Done</Button>
             </form>
         </div>
     )

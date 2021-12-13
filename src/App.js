@@ -9,12 +9,8 @@ function App() {
       <h2>Welcome to my virtual notepad!</h2>
       <Link to="/notes">NOTES</Link>
       <Routes>
-        <Route path="/notes">
-          <Notes />
-        </Route>
-        <Route path="/notes/:noteId">
-          <EditNote />
-        </Route>
+        <Route exact path="/notes" element={<Notes />}/>
+        <Route path="/notes/:noteId" element={<EditNote />}/>
       </Routes>
     </div>
   );
