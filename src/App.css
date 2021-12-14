@@ -24,3 +24,13 @@
     width: 48rem;
     margin-bottom: 1rem;
 }
+
+Form{
+    align-self: center;
+}
+.notFound{
+    margin-top: 2rem;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
