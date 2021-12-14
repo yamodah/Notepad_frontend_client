@@ -1,1 +1,26 @@
-
+.App{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family:"helvetica nue" sans-serif;
+    color: white;
+    background-color: gray;
+    padding-bottom: 3rem;
+    padding-top: 2rem;
+    /* background-image: url(https://wallpaperaccess.com/full/3957931.jpg);
+    background-position: center;
+    background-repeat: repeat-y; */
+}
+.notes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 3rem;
+    flex-direction: column;
+}
+.note{
+    width: 48rem;
+    margin-bottom: 1rem;
+}

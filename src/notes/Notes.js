@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import { listNotes, deleteNote } from "../utils/api";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card,  } from "react-bootstrap";
 export default function Notes(){
     const [notes, setNotes] = useState([])
 
@@ -18,7 +18,8 @@ export default function Notes(){
         }
     }
     const notesHTML = notes.map((note)=>(
-            <Card className="col-4" key={note.id}bg="dark" border="warning" text="white" >
+        <>
+            <Card className="note"key={note.id} border="light" text="dark" >
             <Card.Body>
                 <Card.Title>{note.title}</Card.Title>
                 <Card.Text>
@@ -30,9 +31,10 @@ export default function Notes(){
                 </Button>
             </Card.Body>
             </Card>
+        </>
     ))
     if(!notes.length)return<h2>Loading...</h2>
-    return <div className="row">
+    return <div className="notes">
         {notesHTML}
     </div>
 }

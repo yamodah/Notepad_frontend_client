@@ -1,5 +1,5 @@
 import React,{ useEffect, useState } from 'react'
-import { Button } from 'react-bootstrap'
+import { Button,Form, } from 'react-bootstrap'
 import {useParams, useNavigate} from "react-router-dom"
 import { readNote, changeNote } from '../utils/api'
 function EditNote() {
@@ -26,22 +26,20 @@ function EditNote() {
         history("/notes")
     }
     if(!note.title)return <h3>Loading...</h3>
-    return (
-        <div>
-            <form onSubmit={handleSubmission}>
-                <label>
-                    Title:
-                    <input type="text" onChange={handleChange} value={note.title} name="title"/>
-                </label>
-                <label>
-                    Content:
-                    <textarea onChange={handleChange} value={note.content} name="content"/>
-                </label>
-                <Button onClick={handleCancel} variant="danger">Cancel</Button>
-                <Button type="submit" variant="success">Done</Button>
-            </form>
-        </div>
-    )
+
+    return     (
+    <Form className="col-6 m-3">
+        <Form.Group className="mb-3 col-6" controlId="note_title">
+          <Form.Label>Title</Form.Label>
+          <Form.Control type="text" name="title" value={note.title} onChange={handleChange}/>
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="note_content" >
+          <Form.Label>Content</Form.Label>
+          <Form.Control as="textarea" rows={4} name="content" value={note.content} onChange={handleChange}/>
+        </Form.Group>
+        <Button onClick={handleCancel} variant="danger">Cancel</Button>
+        <Button type="submit" variant="success" onClick={handleSubmission}>Done</Button>
+      </Form>)
 }
 
 export default EditNote
