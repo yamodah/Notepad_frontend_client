@@ -5,7 +5,7 @@
     align-items: center;
     font-family:"helvetica nue" sans-serif;
     color: white;
-    background-color: gray;
+    /* background-color: gray; */
     padding-bottom: 3rem;
     padding-top: 2rem;
     /* background-image: url(https://wallpaperaccess.com/full/3957931.jpg);
@@ -33,4 +33,22 @@ Form{
    display: flex;
    flex-direction: column;
    align-items: center;
+}
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100%;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
