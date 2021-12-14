@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App" >
       <h1>Notes from Yamodah</h1>
-      <h2>Welcome to my virtual notepad!</h2>
+      <h3>Welcome to my virtual notepad!</h3>
       <Link to="/notes" style={{marginTop:"1rem"}}><Badge bg="secondary">NOTES</Badge></Link>
       <Routes>
         <Route path="/notes" element={<Notes />}/>

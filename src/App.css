@@ -26,7 +26,14 @@
 }
 
 Form{
-    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.buttonGroup{
+    display: flex;
+    align-items: center;
 }
 .notFound{
     margin-top: 2rem;
@@ -35,7 +42,7 @@ Form{
    align-items: center;
 }
 body {
-	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background: linear-gradient(315deg, rgba(236,4,233,1), rgb(236, 154, 1) , rgba(202,224,0,1) , rgb(255, 17, 0));
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
 	height: 100%;
