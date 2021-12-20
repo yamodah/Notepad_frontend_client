@@ -19,8 +19,8 @@ function EditNote() {
       };
     const handleSubmission = (e) => {
         e.preventDefault()
-        changeNote(note)
-        history("/notes")
+        changeNote(note).then(()=>history("/notes"))
+        
     }
     const handleCancel = ()=>{
         history("/notes")
