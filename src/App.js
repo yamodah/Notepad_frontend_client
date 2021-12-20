@@ -3,7 +3,7 @@ import { Badge } from "react-bootstrap";
 import Notes from "./notes/Notes";
 import EditNote from "./notes/EditNote"
 import NoNote from "./notes/NoNote"
-import Footer from "./footer/Footer"
+// import Footer from "./footer/Footer"
 import Home from "./home/Home"
 require("dotenv").config()
 function App() {
@@ -19,7 +19,7 @@ function App() {
         <Route path="*" element={<NoNote />}/>
       </Routes>
 
-        <Footer />
+        {/* <Footer /> */}
 
     </div>
   );
