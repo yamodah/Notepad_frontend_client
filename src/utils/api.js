@@ -1,6 +1,6 @@
 import axios from "axios"
 const URL = process.env.REACT_APP_BASE_API_URL
-
+require("dotenv").config()
 export async function listNotes(){
     const data =  await axios.get(`${URL}`).catch(console.error)
     //console.log(data)
