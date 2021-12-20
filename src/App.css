@@ -43,9 +43,6 @@ Form{
    flex-direction: column;
    align-items: center;
 }
-body{
-    background: purple;
-}
 .Home{
 margin:5rem;
 padding-bottom: 3rem;
